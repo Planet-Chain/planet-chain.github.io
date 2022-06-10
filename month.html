@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+</head>
+<body>
+  
+
+
+    <link rel="stylesheet" href="./Checkout.css">
+
+
+
+
+
+  <section class="menu" id="menu">
+
+    <h1 class="heading"> <span> ABO Checkout</span> </h1>
+  
+    <div class="box-container">
+  
+  
+  
+  
+  
+  
+        <div class="box">
+            <img src="images/menu-1.png" alt="">
+            <h3>2 NFT/month</h3>
+            <div class="price">$75 <span>120</span></div>
+            
+
+
+
+            <div id="paypal-button-container-P-2D172537RN3403452MKCOXLQ"></div>
+            <script src="https://www.paypal.com/sdk/js?client-id=AUgUEz20t7ycFKW4Sx2kuRZcVx3Mph8277-abibnJCTV9jbbnpnOfyJ9JJtctzUdxuC3vb7H8yTph--7&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+            <script>
+              paypal.Buttons({
+                  style: {
+                      shape: 'pill',
+                      color: 'blue',
+                      layout: 'vertical',
+                      label: 'subscribe'
+                  },
+                  createSubscription: function(data, actions) {
+                    return actions.subscription.create({
+                      /* Creates the subscription */
+                      plan_id: 'P-2D172537RN3403452MKCOXLQ'
+                    });
+                  },
+                  onApprove: function(data, actions) {
+                    alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                  }
+              }).render('#paypal-button-container-P-2D172537RN3403452MKCOXLQ'); // Renders the PayPal button
+            </script>
+
+
+
+
+</body>
+</html>

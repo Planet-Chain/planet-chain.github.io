@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+</head>
+<body>
+  
+
+
+    <link rel="stylesheet" href="./Checkout.css">
+
+
+
+
+
+  <section class="menu" id="menu">
+
+    <h1 class="heading"> <span>Checkout</span> </h1>
+  
+    <div class="box-container">
+  
+  
+  
+  
+  
+  
+        <div class="box">
+            <img src="images/menu-1.png" alt="">
+            <h3>Tussi Helicopter</h3>
+            <div class="price">$292,07 <span>300</span></div>
+            <div id="smart-button-container">
+              <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
+              </div>
+            </div>
+            <script src="https://www.paypal.com/sdk/js?client-id=AY2Gb_tqqE9qOtwqvvLmZxVG2pAP7JlwChnEKVuM60kUJXrt5rnTfvaaxhqz-VrXISR2qVtY9kZ1Er-Y&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+            <script>
+            function initPayPalButton() {
+              paypal.Buttons({
+                style: {
+                  shape: 'pill',
+                  color: 'blue',
+                  layout: 'vertical',
+                  label: 'pay',
+                  
+                },
+            
+                createOrder: function(data, actions) {
+                  return actions.order.create({
+                    purchase_units: [{"description":"Tussi Helicopter Punk","amount":{"currency_code":"USD","value":292.07}}]
+                  });
+                },
+            
+                onApprove: function(data, actions) {
+                  return actions.order.capture().then(function(orderData) {
+                    
+                    // Full available details
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            
+                    // Show a success message within this page, e.g.
+                    const element = document.getElementById('paypal-button-container');
+                    element.innerHTML = '';
+                    element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                    
+                  });
+                },
+            
+                onError: function(err) {
+                  console.log(err);
+                }
+              }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+            </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
